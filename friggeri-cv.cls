@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% 
+%
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ProvidesClass{friggeri-cv}[2012/04/30 CV class]
@@ -11,7 +11,7 @@
 }
 \ProcessOptions\relax
 \LoadClass{article}
-
+\usepackage{enumitem}
 
 %%%%%%%%%%
 % Colors %
@@ -53,14 +53,14 @@
 
 % \RequirePackage[quiet]{fontspec}
 % \RequirePackage[math-style=TeX,vargreek-shape=unicode]{unicode-math}
-% 
+%
 % \newfontfamily\bodyfont[]{Helvetica Neue}
 % \newfontfamily\thinfont[]{Helvetica Neue UltraLight}
 % \newfontfamily\headingfont[]{Helvetica Neue Condensed Bold}
-% 
+%
 % \defaultfontfeatures{Mapping=tex-text}
 % \setmainfont[Mapping=tex-text, Color=textcolor]{Helvetica Neue Light}
-% 
+%
 % \setmathfont{XITS Math}
 
 %%% modified by Karol Kozioł for ShareLaTex use
@@ -204,14 +204,17 @@ BoldItalicFont=texgyreheros-bolditalic.otf
 }
 \renewcommand{\bfseries}{\headingfont\color{headercolor}}
 \newcommand{\entry}[4]{%
-  #1&\parbox[t]{11.8cm}{%
+  %#1&\parbox[t]{11.8cm}{%
+  #1&\parbox[t]{12.0cm}{%
     \textbf{#2}%
     \hfill%
-    {\footnotesize\addfontfeature{Color=pblue} #3}\\%
+    %{\footnotesize\addfontfeature{Color=pblue} #3}\\%
+    {\footnotesize\addfontfeature{Color=pblue} #3}%
     #4\vspace{\parsep}%
   }\\}
 
-
+% Bullet Lists with fewer gaps command
+\newenvironment{tightemize}{\vspace{-\topsep}\begin{itemize}[leftmargin=0in]\itemsep0pt\parskip0pt\parsep0pt}{\end{itemize}\vspace{-\topsep}}
 %%%%%%%%%%%%%%
 % Side block %
 %%%%%%%%%%%%%%
@@ -233,6 +236,7 @@ BoldItalicFont=texgyreheros-bolditalic.otf
   \end{textblock}
   \let\section\oldsection
 }
+
 
 %%%%%%%%%%%%%%%%
 % Bibliography %
